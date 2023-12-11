@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>White-Pebble</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <!--Montserrat font-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/76ec25f463.js" crossorigin="anonymous"></script>
+    <style> 
+.fontawesomeicon::before {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+ }
+
+.Google-Drive::before {
+   font: var(--fa-font-brands);
+    content: ' \f3aa';
+ }</style>
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.popup{
+    background-color: #ffffff;
+    width: 420px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    font-family: "Poppins",sans-serif;
+    display: none; 
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    position: fixed;
+}
+.popup button{
+    display: block;
+    margin:  0 0 20px auto;
+    background-color: transparent;
+    font-size: 30px;
+    color: #ffffff;
+    background: #03549a;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.popup h2{
+  margin-top: -20px;
+}
+.popupp{
+    font-size: 14px;
+    text-align: justify;
+    margin: 20px 0;
+    line-height: 25px;
+}
+.popup a{
+    display: block;
+    width: 150px;
+    position: relative;
+    margin: 10px auto;
+    text-align: center;
+    background-color: #FFA500;
+    border-radius: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 0;
+}
+
+.popup button{
+    display: block;
+    width: 150px;
+    position: relative;
+    margin: 10px auto;
+    text-align: center;
+    background-color: #FFA500;
+    border-radius: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 0;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 3px solid #FFA500;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    </style>
+  </head>
+  <body>   
+    <div id="popup" class="popup">
+        <h2>Downloading...</h2>
+        <p class="popupp">
+            Thanks for downloading with us! We hope you enjoy your mining!
+        </p>
+        <a class="popup a" href="#" id="close">Dismiss</a>
+    </div>
+    <div id="redirectpopup" class="popup">
+        <h2>Redirecting...</h2>
+        <p class="popupp">
+            We are redirecting you to a different website...
+        </p>
+    </div>
+    <div id="downwarn" class="popup">
+        <h2>WARNING!</h2>
+        <p class="popupp">
+            This download is unsupported!
+            Anything you do may get corrupted or chashes!
+            Use at your own risk!
+        </p>
+        <a class="popup a" href="#" id="close">Dismiss</a>
+    </div>
+    <section id="web">
+      <!-- MOBILE NAVIGATION -->
+      <div class="w3-container w3-padding-16 w3-border-bottom w3-hide-medium w3-hide-large">
+        <a href="#home" class="w3-bar-item w3-button w3-hover-none">White Pebble</a>
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="toggleNavigation()">&#9776;</a>
+      </div>
+      <div id="mobile-nav" class="w3-bar-block w3-hide w3-hide-large w3-hide-medium w3-sticky">
+        <a href="#about" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="toggleNavigation()">ABOUT</a>
+        <a href="#trailer" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="toggleNavigation()">TRAILER</a>
+        <a href="#releases" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="toggleNavigation()">RELEASES</a>
+        <a href="#gitreleases" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="toggleNavigation()">GITHUB RELEASES</a>
+        <a href="#5.0" class="w3-bar-item w3-button w3-center w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green" onclick="toggleNavigation()">v5.0 A New Era</a>
+
+      </div>
+
+      <section class="image-section w3-quarter w3-fixed w3-padding-small">
+        <!--IMAGE/AVATAR-->
+        <img src="avatar.png" class="w3-circle w3-border w3-border-sand" style="border-width: 3px !important;"/>
+        <div class="w3-container w3-padding-16">
+          <a class="button button1" href="https://github.com/Ztrolix/ProjectWhitePebble/"><i class="fa fa-github"></i></i> GitHub</a>
+          <a class="button button1" href="https://www.youtube.com/@ztrolix-hf6dj"><i class="fa fa-youtube"></i></i> YouTube</a>
+        </div>
+      </section>
+
+      <!--CV CONTENT SECTION-->
+      <section class="w3-threequarter w3-padding-large w3-right">
+        <!--DESKTOP NAVIGATION-->
+        <div  class="w3-container w3-padding-large w3-border-bottom w3-hide-small">
+          <a href="#home" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green">White-Pebble</a>
+          <a href="#5.0" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green w3-right w3-hide-small" style="border-width: 2px !important;" onclick="toggleNavigation()">v5.0 A New Era</a>
+          <a href="#gitreleases" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green w3-right w3-hide-small" style="border-width: 2px !important;" onclick="toggleNavigation()">GITHUB RELEASES</a>
+          <a href="#releases" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green w3-right w3-hide-small" style="border-width: 2px !important;" onclick="toggleNavigation()">RELEASES</a>
+          <a href="#trailer" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green w3-right w3-hide-small" style="border-width: 2px !important;" onclick="toggleNavigation()">TRAILER</a>
+          <a href="#about" class="w3-bar-item w3-button w3-hover-none w3-border-white w3-bottombar w3-hover-border-green w3-hover-text-green w3-right w3-hide-small" style="border-width: 2px !important;" onclick="toggleNavigation()">ABOUT</a>
+        </div>
+        <div class="content-container w3-margin-top-2">
+          <!--HOME SECTION-->
+          <div id="downloads" class="w3-container w3-margin-top-20-percent w3-cursive w3-large">
+            <h2 class="w3-border-bottom w3-border-amber" style="border-width: 3px !important;">DOWNLOADS</h2>
+            <center><button id="getdownloads" class="button button1" type="file" onclick="FileReader(CODEFILE[0])">Get Downloads</button></center>
+            <iframe style="width: 100%;" height="770" id="downiframe" class="w3-border-bottom w3-large" src="https://i.ytimg.com/vi/8AwO9aN6hcc/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD_7t5eUTpoYN9R0NIqDTVbu4QlCA" frameborder="0"></iframe>
+            
+          </div>
+            </div>
+
+        <!--FOOTER-->
+        <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
+        <footer class="w3-container w3-border-top w3-center w3-margin-top-4">
+          <p>© 2023 White-Pebble™ | Powered By <i class="fa fa-github"></i> GitHub</p>
+        <!-- End footer -->
+        </footer>
+
+        <!--END OF CV SECTION-->
+      </section>      
+    </section>
+    <script type="text/javascript">
+document.getElementById("downiframe").style.display = "none";
+document.getElementById("getdownloads").style.display = "block";
+var TEXT = "";
+var CODEFILE = "https://github.com/Ztrolix/ProjectWhitePebble/releases/download/versions/keyscode.txt";
+var URL = "";
+async function FileReader(file) {
+  document.getElementById("downiframe").style.display = "block";
+    console.log("Shows downiframe");
+  document.getElementById("getdownloads").style.display = "none";
+    console.log("Hidden GetDownloads");
+  RandomText(await CODEFILE.text());
+}
+function RandomText(text) {
+	  console.log("Ran Function");
+  const textArray = text.split("\n");
+    console.log("Changed textArray");
+  const randomKey = Math.floor(Math.random() * textArray.length);
+    console.log("Changed randomKey");
+  console.log("Key: " + textArray[randomKey]);
+    console.log("Logged KeyCode");
+  var URL = "https://itch.io/login?return_to=https%3A%2F%2Fnova-t.itch.io%2Fwhitepebble-downloads%2Fdownload%2F" + textArray[randomKey];
+    console.log("Changed Var URL");
+  console.log("KeyURL: " + URL);
+  console.log("Logged KEYURl");
+  document.getElementById('downiframe').src = URL;
+    console.log("Changed SRC");
+  alert("Key: " + textArray[randomKey]);
+}
+    </script>
+    <script>
+      // Function to toggle mobile navigation
+      function toggleNavigation() {
+        let nav = document.getElementById("mobile-nav");
+        if (nav.classList.contains('w3-show')) {
+          nav.classList.remove('w3-show');
+        } else { 
+          nav.classList.add('w3-show');
+        }
+      }
+    </script>
+    <script>
+      // Script to load feather icons
+      feather.replace()
+    </script>
+    <script type="text/javascript">
+function loaddownload() {
+  var x = document.getElementById("popup");
+  x.style.display = "block";
+  x.style.display = "block";
+}
+            
+document.querySelector("#close").addEventListener("click", function(){
+    document.querySelector(".popup").style.display = "none";
+    document.querySelector("#popup").style.display = "none";
+});
+    </script>
+    <script type="text/javascript">
+function loadredirectdownload() {
+  var x = document.getElementById("redirectpopup");
+  x.style.display = "block";
+  x.style.display = "block";
+}
+    
+var x = document.getElementById("redirectpopup");        
+document.querySelector("#close").addEventListener("click", function(){
+    x.style.display = "none";
+    x.style.display = "none";
+});
+    </script>
+    <script type="text/javascript">
+function warndownload() {
+  var x = document.getElementById("downwarn");
+  x.style.display = "block";
+  x.style.display = "block";
+}
+            
+document.querySelector("#close").addEventListener("click", function(){
+    document.querySelector(".popup").style.display = "none";
+    document.querySelector("#popup").style.display = "none";
+});
+    </script>
+  </body>
+</html>
